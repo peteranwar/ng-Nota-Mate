@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "notes-app-9a441": {
+      "hosting": {
+        "Notes": [
+          "notes-app-9a441"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "notes-app-9a441"
+  }
+}

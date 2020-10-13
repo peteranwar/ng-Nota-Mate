@@ -1,0 +1,22 @@
+<section>
+
+
+<a [routerLink]="link">
+  <div class="content"  (click)="editing()">
+    <h1>
+        {{ title }}
+    </h1>
+
+    <div #bodyText class="card-body">
+      <p>
+           {{ body }}
+      </p>
+     <p #truncation class="truncation"></p>
+    </div>
+ </div>
+</a>
+
+    <span class="x-button" (click)="onDeleteclicked()">
+      <i class="fa fa-times"></i>
+    </span>
+</section>

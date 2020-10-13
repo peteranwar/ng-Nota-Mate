@@ -1,0 +1,62 @@
+<section>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)"  >
+        <input
+        type="hidden"
+        name="id"
+        [(ngModel)]="notesService.formData.id"
+       
+      />
+      <div class="field">
+          <label class="label">   Title :- </label>
+          <div class="control">
+              <input 
+              type="text" 
+              class="input is-warning"
+              required
+              name="title"
+              [(ngModel)]="notesService.formData.title"
+              #title="ngModel"
+              >
+          </div>
+          <div  *ngIf="title.touched && title.invalid">
+             <p class="help is-danger" *ngIf="title.errors.required" >Title should not be empty.</p>
+          </div>
+      </div>
+<br>
+      <div class="field">
+        <label class="label"> Body :- </label>
+        <div class="control">
+            <textarea  
+            class="textarea is-warning"
+            name="body"
+            required
+            [(ngModel)]="notesService.formData.body"
+
+            #body="ngModel"
+            ></textarea>
+        </div>
+        <div  *ngIf="body.touched && body.invalid">
+            <p class="help is-danger" *ngIf="body.errors.required" >You have to write a note body.</p>
+         </div>
+      </div>
+
+      <div class="field is-grouped is-pulled-right">
+        
+        <div class="control">
+            <button type="button" routerLink="/" class="button is-light"> Cancel </button>
+        </div>
+        <div class="control">
+            <button type="submit"  [disabled]="form.invalid" class="button is-success"> Save </button>
+        </div>
+
+
+      </div>
+
+    
+
+
+
+
+    </form>
+
+</section>

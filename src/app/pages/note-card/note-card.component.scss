@@ -1,0 +1,80 @@
+
+@import '../../../mystyles.scss';
+
+
+section {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 2px #8a4d76;
+    transition: all .7s ease-out;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0 4px #8a4d76;
+        border-radius: 15px;
+        transform: scale(.95);
+         .x-button {
+        transform: scale(1);
+
+          }
+    }
+     
+
+    .content{
+        padding: 15px 10px;
+        margin: 20px;
+
+      
+
+      
+        h1 {
+            font-family: 'Fjalla One','sans-serif' ;
+            font-size: 25px;
+            font-weight: bold;
+            color: $purple;
+            letter-spacing: 1px;
+ 
+        }
+             
+        .card-body {
+            font-family: 'Acme', 'sans-serif';
+             position:relative;
+             overflow: hidden;
+             max-height: 80px;
+             color: #473d54;
+
+             .truncation {
+                 position: absolute;
+                 bottom: 0;
+                 height: 50%;
+                 width: 100%;
+                 background: linear-gradient(to bottom, rgba(white, 0) 0%,  rgba(white, 0.6) 50%,  #fffefecc 100%);
+                 pointer-events: none;
+             }
+
+        }
+        
+        
+    }
+
+    .x-button {
+        position: absolute;
+        top: -4px;
+        right: 5px;
+        color: $yellow;
+        font-size: 26px;
+        transition: all 0.4s ease-in-out;
+       
+        transform: scale(0);
+
+
+     
+    &:hover {
+       color: red;
+       transform: rotate(90deg);
+       font-size: 30px;
+       
+    }
+}
+}

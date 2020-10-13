@@ -1,0 +1,31 @@
+@import '../../../mystyles.scss';
+
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  .top-bar {
+      background: linear-gradient(to left, $yellow, $orange);
+      display: flex;
+      flex-shrink: 0;
+      justify-content: center;
+      box-shadow: 0 0 15px 0 #e00a0a;
+
+      h1 {
+        color: white;
+        font-size: 25px;
+        font-weight: 600;
+        padding: 5px 0;
+      }
+
+  }
+
+  .content {
+    flex-grow: 1;
+    overflow-y: scroll;
+    background:linear-gradient(240deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('../../../assets/n.jpg');
+    background-size: cover;
+  }
+}

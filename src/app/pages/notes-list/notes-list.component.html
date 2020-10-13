@@ -1,0 +1,38 @@
+<div class="container">
+     <h1>Always Take Notes</h1>
+
+  <div class="search-bar">
+    <div class="field">
+      <p class="control has-icons-left">
+          <input 
+          class="input" 
+          type="text"  
+          placeholder="Filter"
+          #query
+         (keyup)="filter(query.value)"
+          >
+          <span class="icon is-small is-left">
+            <i class="fa fa-search"></i>
+          </span>
+      </p>
+    </div>
+</div>
+
+<div  class="notes-list" >
+  <note-card
+  *ngFor="let note of filteredNotes; index as i"
+    (edit)="onEdit(note)"
+    [link]="i"
+    [title]="note.title | uppercase" 
+    [body]="note.body"
+    (delete)="onDelete(note.id)"
+    >
+  </note-card>
+</div>
+
+
+
+  <button class="button add" routerLink="/new"> + Add</button>
+
+
+</div>
