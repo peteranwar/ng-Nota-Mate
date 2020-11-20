@@ -11,7 +11,26 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-notes-list',
   templateUrl: './notes-list.component.html',
   styleUrls: ['./notes-list.component.scss'],
- 
+  animations: [
+    trigger('notesAnim', [
+      transition('* <=> *', [
+        query(':enter', [
+          style( { opacity: 0, transform: 'translateX(-100px)' }),
+          stagger(
+            '700ms',
+            animate('900ms ease-in',
+            style( { opacity: 1, transform: 'translateX(0px)' })
+           )
+          )
+        ], { optional: true}),
+        query(
+          ':leave',
+          [animate('500ms', style({ opacity: 0, transform: 'rotate(180deg)'}))],
+          { optional: true}
+        )
+      ]),
+    ])
+  ]
 })
 export class NotesListComponent implements OnInit {
 
@@ -19,7 +38,7 @@ export class NotesListComponent implements OnInit {
 notes: Note[] ;
 filteredNotes: any[] ;
 
-  
+
   constructor(private notesService: NotesService,
     private firestore: AngularFirestore,
     private toastr: ToastrService) { }
@@ -53,12 +72,12 @@ filteredNotes: any[] ;
 
 
    onDelete(id: string) {
-        if( confirm("Are you sure to delete this note ?")) {
+        if( confirm("Are you sure to delete this note ??")) {
           this.firestore.doc('notes/' + id).delete();
           this.toastr.warning('Deleted successfully', 'Note Mate', {
             timeOut: 5000,
             progressBar: true,
-            
+
           })
         }
       }

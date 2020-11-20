@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class NoteDetailsComponent implements OnInit {
 
   note: Note;
-  
+
   constructor(
           public notesService: NotesService,
           private router: Router,
@@ -27,25 +27,29 @@ export class NoteDetailsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    let data = Object.assign({},form.value);
+    let data = Object.assign({}, form.value);
       delete data.id;
      if (form.value.id == null) {
        this.fireStore.collection('notes').add(data);
 
      } else {
       this.fireStore.doc('notes/'+form.value.id).update(data)
-    
+
     }
     this.toastr.success('Submitted successfully', 'Note Mate', {
              timeOut: 8000,
             progressBar: true,
             progressAnimation: 'increasing'
     })
-     form.resetForm()
+     form.resetForm();
      this.router.navigateByUrl('/');
 
   }
 
+  navBack() {
+    this.notesService.formData.body = "";
+    this.notesService.formData.title = "";
+    this.router.navigateByUrl('/');
+  }
 
- 
 }

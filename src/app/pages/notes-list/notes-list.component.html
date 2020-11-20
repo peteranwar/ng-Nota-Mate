@@ -4,9 +4,9 @@
   <div class="search-bar">
     <div class="field">
       <p class="control has-icons-left">
-          <input 
-          class="input" 
-          type="text"  
+          <input
+          class="input"
+          type="text"
           placeholder="Filter"
           #query
          (keyup)="filter(query.value)"
@@ -23,7 +23,8 @@
   *ngFor="let note of filteredNotes; index as i"
     (edit)="onEdit(note)"
     [link]="i"
-    [title]="note.title | uppercase" 
+    [@notesAnim]
+    [title]="note.title | uppercase"
     [body]="note.body"
     (delete)="onDelete(note.id)"
     >
